@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="staffLib:jar">
+    <output-path>$PROJECT_DIR$/builds/</output-path>
+    <root id="archive" name="staffLib.jar">
+      <element id="module-output" name="staffLib" />
+    </root>
+  </artifact>
+</component>

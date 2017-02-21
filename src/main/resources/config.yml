@@ -1,0 +1,50 @@
+teleport:
+  tp: '&6Teleported to: &f$target'
+  arguments-tp: '&cERROR:&r Not enough arguments. /tp <player> [player]'
+  tphere: '&6You teleported &f$target &6to you'
+  arguments-tphere: '&cERROR:&r Not enough arguments. /tphere <player>'
+  tphere-everyone: '&7&o[&e&o$sender: TELEPORTED $target TO THEM&7&o]'
+  tp-everyone: '&7&o[&e&o$sender: TELEPORTED TO $target&7&o]'
+  offline: '&6Sorry but no player with the specified name&r ''$target'' &6could be found.'
+  tp-other: '&6Teleported&r $target &6to&r $othertarget'
+  tp-other-everyone: '&7&o[&e&o$sender: TELEPORTED $target TO $othertarget&7&o]'
+vanish:
+  unvanished: '&bYou have been unvanished'
+  vanished: '&bYou have been vanished'
+  unvanish-everyone: '&7&o[&e&o$sender: UNVANISHED&7&o]'
+  vanish-everyone: '&7&o[&e&o$sender: VANISHED&7&o]'
+  offline: '&6Sorry but no player with the specified name&r ''$target'' &6could be found.'
+  vanished-other: '&bYou have vanished $target'
+  unvanished-other: '&bYou have unvanished $target'
+  unvanished-other-everyone: '&7&o[&e&o$sender: UNVANISHEED $target&7&o]'
+  vanished-other-everyone: '&7&o[&e&o$sender: VANISHED $target&7&o]'
+staffmode:
+  enable: '&bYou have entered staffmode.'
+  disable: '&bYou have left staffmode.'
+  enable-everyone: '&7&o[&e&o$sender: ENTERED STAFFMODE&7&o]'
+  disable-everyone: '&7&o[&e&o$sender: LEFT STAFFMODE&7&o]'
+frozen:
+  logger: '&c&l$logger logged out while frozen.'
+  command-logger: 'ipban $logger Refusal of SS / Logging out while frozen // CONSOLE EXECUTED COMMAND'
+  moved: '&cYou are frozen! Logout = BAN. Please wait for instruction.'
+  arguments: '&cERROR:&r Not enough arguments. /ss <player>'
+  unfreezed: '&aYou have been unfrozen by a staff member.'
+  unfreezed-sender: '&cYou have unfroze &r$target&c.'
+  freezed: '&cYou have been frozen by a staff member, please wait for further instruction. Logout = ban'
+  freezed-sender: '&aYou have froze &r$target&a.'
+  freezed-everyone: '&7&o[&e&o$sender: FROZE $target&7&o]'
+  unfreezed-everyone: '&7&o[&e&o$sender: UNFROZE $target&7&o]'
+  offline: '&6Sorry but no player with the specified name&r ''$target'' &6could be found.'
+help:
+  cooldown: '&cYou recently requested help. &eTime remaining: &a$cooldown &eseconds'
+  arguments: '&cERROR:&r Not enough arguments. /helpop <reason>'
+  sent: '&eRequest for help has been sent. &aReason: &r$reason'
+  received:
+  - '&4[Help] &aA new request for help has been sent by &e$sender&a.'
+  - '&6Reason:&r $reason'
+  cooldown: 300 # Time in seconds ex: 300 = 5minutes
+staffitems:
+  invsee: '&6Opening inventory of:&r $clicked'
+  randomteleport: '&6Teleported to:&r $player'
+staffother:
+  editterrain: '&6You cannot edit whilst in staffmode.'
