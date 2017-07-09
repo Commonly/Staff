@@ -67,20 +67,20 @@ public class Vanish implements CMD {
             return true;
         }
         Player target = Bukkit.getPlayer(args[0]);
-        if(target == null) {
+        if (target == null) {
             sender.sendMessage(Color.addColor("vanish.offline", core).replace("$target", args[0]));
             return true;
         }
 
-        if(vanished.contains(target.getName())) {
+        if (vanished.contains(target.getName())) {
             vanished.remove(target.getName());
             target.sendMessage(Color.addColor("vanish.unvanished", core));
             sender.sendMessage(Color.addColor("vanish.unvanished-other", core).replace("$target", target.getName()));
-            for(Player pl : Bukkit.getOnlinePlayers()) {
+            for (Player pl : Bukkit.getOnlinePlayers()) {
                 pl.showPlayer(target);
             }
-            for(Player pl : Bukkit.getOnlinePlayers()) {
-                if(pl.hasPermission("staff.staff")) {
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                if (pl.hasPermission("staff.staff")) {
                     pl.sendMessage(Color.addColor("vanish.unvanished-other-everyone", core).replace("$sender", sender.getName()).replace("$target", target.getName()));
                 }
             }
@@ -89,15 +89,15 @@ public class Vanish implements CMD {
             vanished.add(target.getName());
             target.sendMessage(Color.addColor("vanish.vanished", core));
             sender.sendMessage(Color.addColor("vanish.vanished-other", core).replace("$target", target.getName()));
-            for(Player pl : Bukkit.getOnlinePlayers()) {
-                if(pl.hasPermission("staff.staff")) {
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                if (pl.hasPermission("staff.staff")) {
                     pl.showPlayer(target);
                 } else if (!pl.hasPermission("staff.staff")) {
                     pl.hidePlayer(target);
                 }
             }
-            for(Player pl : Bukkit.getOnlinePlayers()) {
-                if(pl.hasPermission("staff.staff")) {
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                if (pl.hasPermission("staff.staff")) {
                     pl.sendMessage(Color.addColor("vanish.vanished-other-everyone", core).replace("$sender", sender.getName()).replace("$target", target.getName()));
                 }
             }

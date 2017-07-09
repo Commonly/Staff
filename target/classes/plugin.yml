@@ -1,0 +1,71 @@
+name: Staff
+version: 1.0.0
+main: me.jdog.staff.Core
+depend: [murAPI]
+authors: [Muricans]
+description: Staff mode
+website: http://muricans.ml
+commands:
+  staffmode:
+    permission: staff.staff
+    permission-message: §cNo permission.
+    aliases: [sm, s, moderator, mod]
+    usage: /<command> [target]
+  teleport:
+    permission: staff.teleport
+    permission-message: §cNo permission.
+    aliases: [tp, tpo]
+    usage: /<command> <target>
+  teleporthere:
+    permission: staff.teleporthere
+    permission-message: §cNo permission.
+    aliases: [tphere, there, th]
+    usage: /<command> <target>
+  vanish:
+    permission: staff.vanish
+    permission-message: §cNo permission.
+    aliases: [v]
+    usage: /<command> [target]
+  screenshare:
+    permission: staff.ss
+    permission-message: §cNo permission.
+    aliases: [freeze, ss]
+    usage: /<command> <target>
+  helpop:
+    permission: staff.helpop
+    permission-message: §cNo permission.
+    aliases: [helpme, hop, request, req]
+    usage: /<command> <message>
+  stafflib:
+    permission: staff.stafflib
+    permission-message: §6staffLib:§r No permission.
+    aliases: [slib,stlib]
+    usage: /<command> [argument]
+permissions:
+  staff.admin:
+    default: op
+    children:
+      staff.modplus: true
+      staff.edit: true
+      staff.stafflib: true
+  staff.modplus:
+    default: op
+    children:
+      staff.moderator: true
+      staff.teleporthere: true
+      staff.tpother: true
+  staff.moderator:
+    default: op
+    children:
+      staff.staff: true
+      staff.teleport: true
+      staff.vanish: true
+      staff.ss: true
+  staff.user:
+    default: true
+    children:
+      staff.helpop: true
+  staff.edit:
+    default: op
+  staff.tpother:
+    default: op

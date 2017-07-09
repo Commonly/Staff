@@ -3,6 +3,7 @@ package me.jdog.staff.listeners;
 import me.jdog.murapi.api.Color;
 import me.jdog.murapi.api.config.Config;
 import me.jdog.staff.Core;
+import me.jdog.staff.SS;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -86,7 +87,7 @@ public class ItemClick implements Listener {
 
     @EventHandler
     public void event3(BlockBreakEvent e) {
-        if (getStaffList().contains(e.getPlayer().getName()) /*&&!e.getPlayer().hasPermission("staff.edit")*/) {
+        if (getStaffList().contains(e.getPlayer().getName()) &&!e.getPlayer().hasPermission("staff.edit")) {
             e.getPlayer().sendMessage(Color.addColor("staffother.editterrain", core));
             e.setCancelled(true);
         }
@@ -102,10 +103,15 @@ public class ItemClick implements Listener {
 
     @EventHandler
     public void event5(BlockPlaceEvent e) {
-        if (getStaffList().contains(e.getPlayer().getName()) /*&&!e.getPlayer().hasPermission("staff.edit")*/) {
+        if (getStaffList().contains(e.getPlayer().getName()) &&!e.getPlayer().hasPermission("staff.edit")) {
             e.getPlayer().sendMessage(Color.addColor("staffother.editterrain", core));
             e.setCancelled(true);
         }
+
+        if (getStaffList().contains(e.getPlayer().getName()) &&e.getBlock().getType().equals(Material.PACKED_ICE)) {
+            e.setCancelled(true);
+        }
+
     }
 
     @EventHandler
@@ -127,6 +133,9 @@ public class ItemClick implements Listener {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
             Player player = (Player) e.getDamager();
             if (getStaffList().contains(player.getName())) {
+                e.setCancelled(true);
+            }
+            if(SS.getFrozen().contains(player.getName())) {
                 e.setCancelled(true);
             }
         }

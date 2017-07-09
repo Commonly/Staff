@@ -34,7 +34,7 @@ public class Help implements CMD {
     public boolean execute(CommandSender cSender, Command command, String label, String[] args) {
         final CommandSender sender = cSender;
         if (cooldown.containsKey(sender.getName())) {
-            sender.sendMessage(Color.addColor("help.cooldown", core).replace("$cooldown", cooldown.get(sender.getName()).toString()));
+            sender.sendMessage(Color.addColor("help.cooldown-message", core).replace("$cooldown", cooldown.get(sender.getName()).toString()));
             return true;
         }
         if (args.length == 0) {

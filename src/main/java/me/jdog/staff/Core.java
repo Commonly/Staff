@@ -30,7 +30,6 @@ public final class Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Frozen(this), this);
         getServer().getPluginManager().registerEvents(new Join(), this);
 
-
         if (!isMurApiInstalled()) {
             getServer().getPluginManager().disablePlugin(this);
         } else {

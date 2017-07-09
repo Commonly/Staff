@@ -5,7 +5,6 @@ import me.jdog.murapi.api.cmd.CMD;
 import me.jdog.murapi.api.config.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
