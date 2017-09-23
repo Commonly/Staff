@@ -4,7 +4,7 @@ main: me.jdog.staff.Core
 depend: [murAPI]
 authors: [Muricans]
 description: Staff mode
-website: http://muricans.ml
+website: https://www.commonly.github.io
 commands:
   staffmode:
     permission: staff.staff

@@ -18,11 +18,14 @@ vanish:
   unvanished-other: '&bYou have unvanished $target'
   unvanished-other-everyone: '&7&o[&e&o$sender: UNVANISHEED $target&7&o]'
   vanished-other-everyone: '&7&o[&e&o$sender: VANISHED $target&7&o]'
+  vanishonjoin-off: '&aYou will no longer join vanished.'
+  vanishonjoin-on: '&aYou will now join vanished.'
 staffmode:
   enable: '&bYou have entered staffmode.'
   disable: '&bYou have left staffmode.'
   enable-everyone: '&7&o[&e&o$sender: ENTERED STAFFMODE&7&o]'
   disable-everyone: '&7&o[&e&o$sender: LEFT STAFFMODE&7&o]'
+  invalid-args: '&cERROR:&r Invalid arguments. Usage: /staffmode <vanishonjoin>'
 frozen:
   logger:
   - ' '

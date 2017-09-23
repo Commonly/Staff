@@ -9,14 +9,19 @@ import me.jdog.staff.listeners.Frozen;
 import me.jdog.staff.listeners.ItemClick;
 import me.jdog.staff.listeners.Join;
 import me.jdog.staff.listeners.Leave;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // debug (if any errors happen)
+        PluginDescriptionFile pdf = getDescription();
+        getServer().getConsoleSender().sendMessage(Color.addColor("&aStaff v" + pdf.getVersion() + " has been enabled"));
         Config staff = new Config(this, "staff.yml");
         staff.create();
         CMDManager.registerCommand(new StaffMode(this), this);
@@ -28,7 +33,7 @@ public final class Core extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemClick(this), this);
         getServer().getPluginManager().registerEvents(new Leave(), this);
         getServer().getPluginManager().registerEvents(new Frozen(this), this);
-        getServer().getPluginManager().registerEvents(new Join(), this);
+        getServer().getPluginManager().registerEvents(new Join(this), this);
 
         if (!isMurApiInstalled()) {
             getServer().getPluginManager().disablePlugin(this);
@@ -40,6 +45,13 @@ public final class Core extends JavaPlugin {
         //config
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+    }
+
+    @Override
+    public void onDisable() {
+        // debug (if any errors happen)
+        PluginDescriptionFile pdf = getDescription();
+        getServer().getConsoleSender().sendMessage(Color.addColor("&cStaff v" + pdf.getVersion() + " has been disabled"));
     }
 
     private boolean isMurApiInstalled() {
@@ -56,7 +68,7 @@ public final class Core extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("stafflib")) {
             if (args.length == 0) {
-                sender.sendMessage(Color.addColor("&cERROR:&r Not enough arguments. /stafflib <reload|version>"));
+                sender.sendMessage(Color.addColor("&cERROR:&r Not enough arguments. /stafflib <reload|version|spigot>"));
                 return true;
             }
 
@@ -69,8 +81,11 @@ public final class Core extends JavaPlugin {
             } else if (args[0].equalsIgnoreCase("version")) {
                 sender.sendMessage(Color.addColor("&6staffLib (Staff) version:&r " + getDescription().getVersion()));
                 return true;
+            } else if (args[0].equalsIgnoreCase("spigot")) {
+                sender.sendMessage(Color.addColor("&6core:&r Spigot link: &dhttps://www.spigotmc.org/resources/staff.43580/"));
+                return true;
             } else {
-                sender.sendMessage(Color.addColor("&cERROR:&r Invalid arguments. /stafflib <reload|version>"));
+                sender.sendMessage(Color.addColor("&cERROR:&r Invalid arguments. /stafflib <reload|version|spigot>"));
             }
 
         }
