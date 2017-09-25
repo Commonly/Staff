@@ -3,7 +3,7 @@ hcf-like staff mode including vanish and more - https://www.spigotmc.org/resourc
 ## Commands & Permissions
 https://github.com/Commonly/Staff/wiki/Commands-&-Permissions
 ## Download
-https://github.com/Commonly/Staff/blob/v1.0.0/target/Staff.jar?raw=true
+https://github.com/Commonly/Staff/releases/tag/v1.1.0
 ## Tested Versions
 1.8 & 1.12 (Should work 1.8-1.12 though)
 # TOS
