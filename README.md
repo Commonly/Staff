@@ -7,4 +7,4 @@ https://github.com/Commonly/Staff/releases/tag/v1.1.0
 ## Tested Versions
 1.8 & 1.12 (Should work 1.8-1.12 though)
 # TOS
-This is free and open source, so if you want to use the code please credit me! 1. Do NOT repost the plugin! 2. Try to credit me. 3. This is free, so don't repost as a premium plugin/if you use the code from this (even a little bit) it must be free.
+This is free and open source, so if you want to use the code please credit me! 1. Do NOT repost the plugin! 2. Try to credit me. 3. This is free, so don't repost as a premium plugin/if you use the code from this (even a little bit) it would be kind of you to make it free.
