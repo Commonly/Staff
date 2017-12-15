@@ -9,11 +9,14 @@ import me.jdog.staff.listeners.Frozen;
 import me.jdog.staff.listeners.ItemClick;
 import me.jdog.staff.listeners.Join;
 import me.jdog.staff.listeners.Leave;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public final class Core extends JavaPlugin {
 
@@ -22,7 +25,7 @@ public final class Core extends JavaPlugin {
         // debug (if any errors happen)
         PluginDescriptionFile pdf = getDescription();
         getServer().getConsoleSender().sendMessage(Color.addColor("&aStaff v" + pdf.getVersion() + " has been enabled"));
-        Config staff = new Config(this, "staff.yml");
+        Config staff = new Config(this,"staff.yml");
         staff.create();
         CMDManager.registerCommand(new StaffMode(this), this);
         CMDManager.registerCommand(new Vanish(this), this);

@@ -54,3 +54,6 @@ staffitems:
   randomteleport: '&6Teleported to:&r $player'
 staffother:
   editterrain: '&6You cannot edit whilst in staffmode.'
+silent-chest-editing:
+  enabled: true
+  silent-open-permission: 'staff.silentopen'

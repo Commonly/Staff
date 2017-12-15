@@ -36,7 +36,7 @@ public class Vanish implements CMD {
         if (args.length == 0) {
             if (vanished.contains(sender.getName())) {
                 vanished.remove(sender.getName());
-                sender.sendMessage(Color.addColor("vanish.unvanished", core));
+                        sender.sendMessage(Color.addColor("vanish.unvanished", core));
                 for (Player pl : Bukkit.getOnlinePlayers()) {
                     if (pl.hasPermission("staff.staff")) {
                         pl.sendMessage(Color.addColor("vanish.unvanish-everyone", core).replace("$sender", sender.getName()));

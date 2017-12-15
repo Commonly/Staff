@@ -4,9 +4,11 @@ import me.jdog.murapi.api.Color;
 import me.jdog.murapi.api.config.Config;
 import me.jdog.staff.Core;
 import me.jdog.staff.SS;
+import me.jdog.staff.Vanish;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +23,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.Inventory;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -62,6 +65,33 @@ public class ItemClick implements Listener {
                     e.getPlayer().performCommand("vanish");
                 }
 
+            }
+        }
+
+        if(!e.getPlayer().isSneaking() && (e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
+            if (getStaffList().contains(e.getPlayer().getName())) {
+                if(core.getConfig().getBoolean("silent-chest-viewing.enabled")
+                        && e.getPlayer().hasPermission(core.getConfig().getString("silent-chest-viewing.permission"))) {
+                    Inventory inven = null;
+                    switch (e.getClickedBlock().getType()) {
+                        case CHEST:
+                            Chest chest = (Chest) e.getClickedBlock().getState();
+                            inven = core.getServer().createInventory(e.getPlayer(), chest.getInventory().getSize());
+                            inven.setContents(chest.getInventory().getContents());
+                            e.setCancelled(true);
+                            e.getPlayer().openInventory(inven);
+                            //chest.getBlockInventory().setContents(inven.getContents());
+                            break;
+                        case TRAPPED_CHEST:
+                            Chest trapChest = (Chest) e.getClickedBlock().getState();
+                            inven = core.getServer().createInventory(e.getPlayer(), trapChest.getInventory().getSize());
+                            inven.setContents(trapChest.getInventory().getContents());
+                            e.setCancelled(true);
+                            e.getPlayer().openInventory(inven);
+                            //trapChest.getBlockInventory().setContents(inven.getContents());
+                            break;
+                    }
+                }
             }
         }
     }

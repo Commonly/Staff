@@ -6,7 +6,7 @@
 
     <groupId>me.jdog.staff</groupId>
     <artifactId>staff</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <name>Staff</name>
@@ -77,11 +77,6 @@
             <artifactId>bukkit</artifactId>
             <version>1.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.warrenstrange</groupId>
-            <artifactId>googleauth</artifactId>
-            <version>1.1.2</version>
         </dependency>
     </dependencies>
 </project>
